@@ -3,10 +3,11 @@ import './../App.css';
 
 class RoomList extends Component {
   constructor (props) {
-    super (props)
+    super (props);
 
     this.state = {
-      rooms: []
+      rooms: [],
+      newRoomName: ''
     };
 
     this.roomsRef = this.props.firebase.database().ref('rooms');
@@ -21,6 +22,20 @@ class RoomList extends Component {
     });
   }
 
+  handleChange(event) {
+    this.setState({ newRoomName: event.target.value });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+  }
+
+  createRoom() {
+    this.roomsRef.push({
+      name: this.state.newRoomName
+    });
+  }
+
   render() {
     return (
       <section className= "room-list">
@@ -32,6 +47,10 @@ class RoomList extends Component {
             )
             })}
           </ul>
+          <form onSubmit={(e) => this.handleSubmit(e)}>
+            <input type="text" value={this.state.newRoom} onChange={(e) => this.handleChange(e)} />
+            <button type="submit" onClick={ () => this.createRoom()}> Add Room </button>
+          </form>
         </div>
       </section>
     );
