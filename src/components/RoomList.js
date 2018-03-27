@@ -44,7 +44,7 @@ class RoomList extends Component {
             {this.state.rooms.map( (room, index) => {
             return(
               <li key= {index} >{room.name}</li>
-            )
+            ) 
             })}
           </ul>
           <form onSubmit={(e) => this.handleSubmit(e)}>
