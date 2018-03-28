@@ -33,14 +33,14 @@ class App extends Component {
     return (
       <div className="App">
       <aside className="list-chat-rooms">
-        <RoomList firebase = {firebase} activeRoom ={this. activeRoom.bind(this)} />
+        <RoomList firebase ={firebase} activeRoom ={this.activeRoom.bind(this)} />
       </aside>
       <h3 className="active-chat-room">{this.state.activeRoom.name}
       </h3>
 
-      {displayMessages ?
+      { displayMessages ?
 
-        (<MessageList firebase = {firebase} activeRoom={this.state.activeRoom.content} />) : (null)
+        <MessageList firebase = {firebase} activeRoom={this.state.activeRoom.key} /> : (null)
       }
       </div>
     );
