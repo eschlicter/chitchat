@@ -22,6 +22,29 @@
   font-size: large;
 }
 
+/*
+
+aside {
+    float: left;
+    text-align: center;
+}
+
+.current-chat-message{
+    padding: 10px;
+    text-align: center;
+}
+
+nav {
+    padding: 20px;
+}
+
+input {
+  width: 55%;
+}
+
+*/
+
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
