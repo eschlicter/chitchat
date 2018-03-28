@@ -28,7 +28,7 @@ class App extends Component {
     this.setState({ activeRoom: room })
 }
   render() {
-    const displayMessages = this.state.activeRoom.content;
+    const displayMessages = this.state.activeRoom;
 
     return (
       <div className="App">
