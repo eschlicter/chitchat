@@ -8,7 +8,7 @@
 }
 
 .App-header {
-  background-color: #222;
+  background-color: #22222;
   height: 150px;
   padding: 20px;
   color: white;
@@ -21,8 +21,6 @@
 .App-intro {
   font-size: large;
 }
-
-/*
 
 aside {
     float: left;
@@ -41,8 +39,6 @@ nav {
 input {
   width: 55%;
 }
-
-*/
 
 
 @keyframes App-logo-spin {
