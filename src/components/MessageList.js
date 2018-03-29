@@ -30,11 +30,11 @@ class MessageList extends Component {
     const messageList = this.state.messages
     .filter(message => message.roomId === activeRoom)
     .map(message => {
-      return <li className="current-chat-message" key={message.key}>{message.content}</li>
+      return <div className="current-chat-message" key={message.key}>{message.content}</div>
     })
     return(
       <div className="chat-messages">
-        <ul>{messageList}</ul>
+        <div>{messageList}</div>
       </div>
 
     );
