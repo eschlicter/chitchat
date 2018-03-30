@@ -43,7 +43,7 @@ class App extends Component {
     return (
       <div className="App">
 
-      
+
       <User firebase={firebase} setUser={this.setUser} currentUser={currentUser} />
 
       <aside className="list-chat-rooms">
@@ -54,7 +54,7 @@ class App extends Component {
       </h1>
 
       { displayMessages ?
-        <MessageList firebase = {firebase} activeRoom={this.state.activeRoom.key} /> : (null)
+        <MessageList firebase = {firebase} activeRoom={this.state.activeRoom.key} user={currentUser}/> : (null)
       }
       </div>
     );
