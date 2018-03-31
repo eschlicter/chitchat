@@ -32,7 +32,8 @@ class User extends Component {
 
   render() {
     return(
-      <section>
+      <section className="nav-bar">
+
       <h3> Welcome, {this.props.currentUser}! </h3>
 
 

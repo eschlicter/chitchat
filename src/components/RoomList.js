@@ -38,8 +38,16 @@ class RoomList extends Component {
     });
   }
 
-  selectRoom(room){
-    this.props.activeRoom(room);
+  selectRoom(key){
+    this.props.activeRoom(key);
+  }
+
+  deleteRoom(roomKey) {
+    const room = this.props.firebase.database().ref('rooms' + roomKey);
+    room.remove()
+    const remainingRooms= this.state.rooms
+    .filter(room => room.key !== roomKey);
+    this.setState({ rooms: remainingRooms });
   }
 
   render() {
@@ -47,9 +55,12 @@ class RoomList extends Component {
       <section className= "room-list">
         <div className= "side-bar-list-names">
           <ul>
-            {this.state.rooms.map( (room, index) => {
+            {this.state.rooms.map( (room) => {
             return(
-              <div key= {room.key} onClick={(event) => this.selectRoom(room, event)}>{room.name}</div>
+              <div key= {room.key} onClick={(event) => this.selectRoom(room, event)}>{room.name}
+              <button className="deleteRoom" onClick={(event) => {event.preventDefault(); this.deleteRoom(room.key)}}> Delete
+              </button>
+              </div>
             )
             })}
 

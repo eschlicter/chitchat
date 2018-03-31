@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: sans-serif;
 }
 
 .App-logo {
@@ -8,7 +9,7 @@
 }
 
 .App-header {
-  background-color: #22222;
+  background-color: #222;
   height: 150px;
   padding: 20px;
   color: white;
@@ -16,6 +17,7 @@
 
 .App-title {
   font-size: 1.5em;
+
 }
 
 .App-intro {
@@ -24,12 +26,40 @@
 
 aside {
     float: left;
-    text-align: center;
+    width: 30%;
+    height: 100%;
+    
+}
+
+.chatroom-messages {
+  width: 90%;
+  float: center;
+}
+
+.MessageList {
+
+}
+
+h1 {
+  width: 90%;
+}
+
+.nav-bar {
+  padding: 10px;
+  border: 20px;
+}
+
+.side-bar-list-names {
+  padding: 10px;
+  text-align: left;
+
 }
 
 .current-chat-message{
     padding: 10px;
+    border: 20px;
     text-align: center;
+    float: center;
 }
 
 nav {
