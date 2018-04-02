@@ -32,12 +32,15 @@ class MessageList extends Component {
     });
   }
   handleSubmit(event){
-    event.preventDefault();
-    if (!this.state.content) {return}
+    event.preventDefault()
+    if (!this.state.content) {return};
+    this.setState({
+      content: ''
+    });
   }
 
   createNewMessage(event) {
-    event.preventDefault();
+
     this.messagesRef.push({
       username: this.state.username,
       sentAt: this.state.sentAt,
@@ -59,18 +62,21 @@ class MessageList extends Component {
     const messageList = this.state.messages
     .filter(message => message.roomId === activeRoom)
     .map(message => {
-      return <div className="current-chat-message" key={message.key}>{message.username}: {message.content}
+      return <div className="current-chat-message" key={message.key}>{message.sentAt}{message.username}: {message.content}
       <button className="deleteMessage" onClick={() => this.deleteMessage(message.key)}>Delete</button>
       </div>
     })
 
     return(
   <div className="chatroom-messages">
-    <div>{messageList}</div>
+    <span>{messageList}</span>
 
-    <form onSubmit={(event) => this.handleSubmit(event)}>
+    <form onSubmit={(event) => this.handleSubmit(event)} >
+
       <input type="text" value={this.state.content} name="createNewMessage" placeholder="New Message" onChange={(event) => this.handleChange(event)} />
+
       <button className="send-button" type="submit" onClick={(event) => this.createNewMessage(event)}>Send</button>
+
     </form>
   </div>
     );

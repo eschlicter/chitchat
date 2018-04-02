@@ -8,40 +8,22 @@
   height: 80px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-
-}
-
-.App-intro {
-  font-size: large;
-}
-
 aside {
-    float: left;
-    width: 30%;
-    height: 100%;
-    
+  float: left;
+  width: 20%;
+  background-color: #eeeeee;
+  padding: 10px;
+  height: 100%;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+.main-section{
+  height: 100%;
 }
 
 .chatroom-messages {
-  width: 90%;
-  float: center;
-}
-
-.MessageList {
-
-}
-
-h1 {
-  width: 90%;
 }
 
 .nav-bar {
@@ -49,25 +31,13 @@ h1 {
   border: 20px;
 }
 
-.side-bar-list-names {
-  padding: 10px;
-  text-align: left;
-
-}
-
 .current-chat-message{
-    padding: 10px;
-    border: 20px;
-    text-align: center;
-    float: center;
-}
-
-nav {
-    padding: 20px;
+    padding: 5px;
+    border: 5px;
 }
 
 input {
-  width: 55%;
+  width: 50%;
 }
 
 

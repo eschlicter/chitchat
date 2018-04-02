@@ -49,6 +49,7 @@ class App extends Component {
       <aside className="list-chat-rooms">
         <RoomList firebase ={firebase} activeRoom ={this.activeRoom} />
       </aside>
+      <div className="main-section">
 
       <h1 className="active-chat-room">{this.state.activeRoom.name}
       </h1>
@@ -56,6 +57,7 @@ class App extends Component {
       { displayMessages ?
         <MessageList firebase = {firebase} activeRoom={this.state.activeRoom.key} user={currentUser}/> : (null)
       }
+      </div>
       </div>
     );
   }
