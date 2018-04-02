@@ -40,7 +40,6 @@ class MessageList extends Component {
   }
 
   createNewMessage(event) {
-
     this.messagesRef.push({
       username: this.state.username,
       sentAt: this.state.sentAt,
@@ -51,18 +50,25 @@ class MessageList extends Component {
 
   deleteMessage(messageKey) {
     const message = this.props.firebase.database().ref('messages' + messageKey);
-    message.remove()
+    message.remove();
     const remainingMessages= this.state.messages
     .filter(message => message.key !== messageKey);
     this.setState({ messages: remainingMessages });
   }
+
+formatTime(sentAt){
+  var numberTime = parseInt(sentAt)
+  var time = new Date (numberTime)
+  var yyyy = time.getFullYear();
+  var mm = ('0' + (time.getMonth() +1)).slice(-2);
+}
 
   render() {
     const activeRoom = this.props.activeRoom;
     const messageList = this.state.messages
     .filter(message => message.roomId === activeRoom)
     .map(message => {
-      return <div className="current-chat-message" key={message.key}>{message.sentAt}{message.username}: {message.content}
+      return <div className="current-chat-message" key={message.key}>{this.formatTime(message.sentAt)}{message.username}: {message.content}
       <button className="deleteMessage" onClick={() => this.deleteMessage(message.key)}>Delete</button>
       </div>
     })
