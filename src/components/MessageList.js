@@ -57,10 +57,29 @@ class MessageList extends Component {
   }
 
 formatTime(sentAt){
+  // eslint-disable-next-line
   var numberTime = parseInt(sentAt)
   var time = new Date (numberTime)
-  var yyyy = time.getFullYear();
+  var yyyy = time.getFullYear()
   var mm = ('0' + (time.getMonth() +1)).slice(-2);
+  var dd = ('0' + time.getDate()).slice(-2);
+  var hh = time.getHours();
+  var h = hh;
+  var min = ('0' + time.getMinutes()).slice(-2);
+  var ampm = 'AM'
+
+  if (hh > 12) {
+    h = hh - 12;
+    ampm = 'PM'
+  } else if (hh === 12){
+    h = 12;
+    ampm = 'PM';
+  } else if (hh === 0) {
+    h = 12;
+  }
+  var newTime = mm + '/' + dd + '/' + yyyy + ', ' + h + ':' + min + ampm + "  ";
+  return newTime;
+
 }
 
   render() {
