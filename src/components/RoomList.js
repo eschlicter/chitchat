@@ -43,9 +43,9 @@ class RoomList extends Component {
   }
 
   deleteRoom(roomKey) {
-    const room = this.props.firebase().ref('rooms' + roomKey);
-    room.remove();
-    const remainingRooms = this.state.rooms
+    const room = this.props.firebase.database().ref('rooms' + roomKey);
+    room.remove()
+    const remainingRooms= this.state.rooms
     .filter(room => room.key !== roomKey);
     this.setState({ rooms: remainingRooms });
   }
