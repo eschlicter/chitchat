@@ -57,12 +57,39 @@ class MessageList extends Component {
     this.setState({ messages: remainingMessages });
   }
 
+
+    formatTime(sentAt){
+    // eslint-disable-next-line
+    var numberTime = parseInt(sentAt)
+    var time = new Date (numberTime)
+    var yyyy = time.getFullYear()
+    var mm = ('0' + (time.getMonth() +1)).slice(-2);
+    var dd = ('0' + time.getDate()).slice(-2);
+    var hh = time.getHours();
+    var h = hh;
+    var min = ('0' + time.getMinutes()).slice(-2);
+    var ampm = 'AM'
+
+    if (hh > 12) {
+      h = hh - 12;
+      ampm = 'PM'
+    } else if (hh === 12){
+      h = 12;
+      ampm = 'PM';
+    } else if (hh === 0) {
+      h = 12;
+    }
+    var newTime = mm + '/' + dd + '/' + yyyy + ', ' + h + ':' + min + ampm + "  ";
+    return newTime;
+
+  }
+
   render() {
     const activeRoom = this.props.activeRoom;
     const messageList = this.state.messages
     .filter(message => message.roomId === activeRoom)
     .map(message => {
-      return <div className="current-chat-message" key={message.key}>{message.sentAt}{message.username}: {message.content}
+      return <div className="current-chat-message" key={message.key}>{this.formatTime(message.sentAt)}{message.username}: {message.content}
       <button className="deleteMessage" onClick={() => this.deleteMessage(message.key)}>Delete</button>
       </div>
     })
@@ -71,7 +98,7 @@ class MessageList extends Component {
   <div className="chatroom-messages">
     <span>{messageList}</span>
 
-    <form onSubmit={(event) => this.handleSubmit(event)} >
+    <form className="submission-form" onSubmit={(event) => this.handleSubmit(event)} >
 
       <input type="text" value={this.state.content} name="createNewMessage" placeholder="New Message" onChange={(event) => this.handleChange(event)} />
 
@@ -82,5 +109,6 @@ class MessageList extends Component {
     );
   }
 }
+
 
 export default MessageList;
