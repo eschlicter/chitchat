@@ -40,6 +40,7 @@ class MessageList extends Component {
   }
 
   createNewMessage(event) {
+
     this.messagesRef.push({
       username: this.state.username,
       sentAt: this.state.sentAt,
@@ -56,31 +57,33 @@ class MessageList extends Component {
     this.setState({ messages: remainingMessages });
   }
 
-  formatTime(sentAt){
-  // eslint-disable-next-line
-  var numberTime = parseInt(sentAt)
-  var time = new Date (numberTime)
-  var yyyy = time.getFullYear()
-  var mm = ('0' + (time.getMonth() +1)).slice(-2);
-  var dd = ('0' + time.getDate()).slice(-2);
-  var hh = time.getHours();
-  var h = hh;
-  var min = ('0' + time.getMinutes()).slice(-2);
-  var ampm = 'AM'
 
-  if (hh > 12) {
-    h = hh - 12;
-    ampm = 'PM'
-  } else if (hh === 12){
-    h = 12;
-    ampm = 'PM';
-  } else if (hh === 0) {
-    h = 12;
+    formatTime(sentAt){
+    // eslint-disable-next-line
+    var numberTime = parseInt(sentAt)
+    var time = new Date (numberTime)
+    var yyyy = time.getFullYear()
+    var mm = ('0' + (time.getMonth() +1)).slice(-2);
+    var dd = ('0' + time.getDate()).slice(-2);
+    var hh = time.getHours();
+    var h = hh;
+    var min = ('0' + time.getMinutes()).slice(-2);
+    var ampm = 'AM'
+
+    if (hh > 12) {
+      h = hh - 12;
+      ampm = 'PM'
+    } else if (hh === 12){
+      h = 12;
+      ampm = 'PM';
+    } else if (hh === 0) {
+      h = 12;
+    }
+    var newTime = mm + '/' + dd + '/' + yyyy + ', ' + h + ':' + min + ampm + "  ";
+    return newTime;
+
   }
-  var newTime = mm + '/' + dd + '/' + yyyy + ', ' + h + ':' + min + ampm + "  ";
-  return newTime;
 
-}
   render() {
     const activeRoom = this.props.activeRoom;
     const messageList = this.state.messages
@@ -106,5 +109,6 @@ class MessageList extends Component {
     );
   }
 }
+
 
 export default MessageList;

@@ -32,7 +32,7 @@ class User extends Component {
 
   render() {
     return(
-      <section>
+      <section className="welcome-bar">
       <h3> Welcome, {this.props.currentUser}! </h3>
       {this.props.currentUser === 'Guest' ?
         <button className="login-button" onClick={this.logIn}>Log In</button> :
