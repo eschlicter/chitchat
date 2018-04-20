@@ -44,12 +44,17 @@ class App extends Component {
       <div className="App">
 
 
-      <User firebase={firebase} setUser={this.setUser} currentUser={currentUser} />
+      <div className="left-column">
+      <span className="top-nav">
+        <User firebase={firebase} setUser={this.setUser} currentUser={currentUser} />
+      </span>
 
       <aside className="list-chat-rooms">
         <RoomList firebase ={firebase} activeRoom ={this.activeRoom} />
       </aside>
-      <div className="main-section">
+      </div>
+      <div className="right-column">
+
 
       <h1 className="active-chat-room">{this.state.activeRoom.name}
       </h1>

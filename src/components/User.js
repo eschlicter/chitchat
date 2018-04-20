@@ -34,10 +34,10 @@ class User extends Component {
     return(
       <section>
       <h3> Welcome, {this.props.currentUser}! </h3>
-
-
-        <button className="login-button" onClick={this.logIn}>Log In</button>
+      {this.props.currentUser === 'Guest' ?
+        <button className="login-button" onClick={this.logIn}>Log In</button> :
         <button className="logout-button" onClick={this.logOut}>Log Out</button>
+      }
       </section>
     );
   }

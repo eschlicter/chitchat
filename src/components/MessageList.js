@@ -50,7 +50,7 @@ class MessageList extends Component {
 
   deleteMessage(messageKey) {
     const message = this.props.firebase.database().ref('messages' + messageKey);
-    message.remove();
+    message.remove()
     const remainingMessages= this.state.messages
     .filter(message => message.key !== messageKey);
     this.setState({ messages: remainingMessages });
@@ -95,7 +95,7 @@ class MessageList extends Component {
   <div className="chatroom-messages">
     <span>{messageList}</span>
 
-    <form onSubmit={(event) => this.handleSubmit(event)} >
+    <form className="message-submit-form" onSubmit={(event) => this.handleSubmit(event)} >
 
       <input type="text" value={this.state.content} name="createNewMessage" placeholder="New Message" onChange={(event) => this.handleChange(event)} />
 

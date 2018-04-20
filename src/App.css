@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   font-family: sans-serif;
+  height: 600px;
 }
 
 .App-logo {
@@ -8,22 +9,37 @@
   height: 80px;
 }
 
-aside {
+.left-column{
   float: left;
-  width: 20%;
-  background-color: #eeeeee;
-  padding: 10px;
-  height: 100%;
-  text-align: left;
-  margin-left: auto;
-  margin-right: auto;
+  width: 30%;
+  height: 600px;
+  background-color: aliceblue;
+  max-width: 30%;
+  overflow-x: auto;
+  text-align: center;
+}
+
+.right-column{
+  width: 70%;
+  height: 600px;
+  overflow-y: scroll;
+  position: relative;
+}
+input {
+  width: 50%;
+}
+.message-submit-form{
+  position: relative;
+  bottom: 0;
 
 }
+
 .main-section{
   height: 100%;
 }
 
 .chatroom-messages {
+  text-align: center;
 }
 
 .nav-bar {
@@ -34,10 +50,6 @@ aside {
 .current-chat-message{
     padding: 5px;
     border: 5px;
-}
-
-input {
-  width: 50%;
 }
 
 
