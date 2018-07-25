@@ -28,11 +28,7 @@
 input {
   width: 50%;
 }
-.message-submit-form{
-  position: relative;
-  bottom: 0;
 
-}
 
 .main-section{
   height: 100%;
@@ -63,8 +59,6 @@ input {
   margin: auto;
 }
 
-<<<<<<< HEAD
-=======
 input {
   width: 50%;
 }
@@ -75,7 +69,6 @@ input {
   bottom: 10px;
   right: 20px;
 }
->>>>>>> 1c055473e9a84fcd8326b08a11f64fe2be9e4d4f
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
