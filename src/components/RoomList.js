@@ -50,6 +50,10 @@ class RoomList extends Component {
     this.setState({ rooms: remainingRooms });
   }
 
+  removeRoom(room) {
+    this.roomsRef.child(room.key).remove();
+  }
+
   render() {
     return (
       <section className= "room-list">
@@ -58,7 +62,7 @@ class RoomList extends Component {
             {this.state.rooms.map( (room) => {
             return(
               <div key= {room.key} onClick={(event) => this.selectRoom(room, event)}>{room.name}
-              <button className="deleteRoom" onClick={(event) => {event.preventDefault(); this.deleteRoom(room.key)}}> Delete </button>
+              <button className="deleteRoom" onClick={(event) => {this.deleteRoom(room.key)}}> Delete </button>
               </div>
             )
             })}

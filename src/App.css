@@ -20,10 +20,10 @@
 }
 
 .right-column{
+  float: left;
   width: 70%;
   height: 600px;
   overflow-y: scroll;
-  position: relative;
 }
 input {
   width: 50%;
