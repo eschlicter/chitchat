@@ -44,10 +44,9 @@ input {
 
 }
 .active-chat-room {
-  float: right;
+  height: 60px;
   width: 80%;
   padding: 5px;
-  border: 5px;
   margin: auto;
 
 }

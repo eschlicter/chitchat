@@ -22,24 +22,25 @@ class MessageList extends Component {
       message.key = snapshot.key;
       this.setState({ messages: this.state.messages.concat( message )});
     });
+
   }
-  handleChange(event) {
+  handleChange(e) {
     this.setState({
       username: this.props.user,
-      content: event.target.value,
+      content: e.target.value,
       sentAt: this.props.firebase.database.ServerValue.TIMESTAMP,
       roomId: this.props.activeRoom
     });
   }
-  handleSubmit(event){
-    event.preventDefault()
+  handleSubmit(e){
+    e.preventDefault()
     if (!this.state.content) {return};
     this.setState({
       content: ''
     });
   }
 
-  createNewMessage(event) {
+  createNewMessage(e) {
 
     this.messagesRef.push({
       username: this.state.username,
@@ -51,7 +52,7 @@ class MessageList extends Component {
 
   deleteMessage(messageKey) {
     const message = this.props.firebase.database().ref('messages' + messageKey);
-    message.remove();
+    message.remove()
     const remainingMessages= this.state.messages
     .filter(message => message.key !== messageKey);
     this.setState({ messages: remainingMessages });
@@ -85,11 +86,9 @@ class MessageList extends Component {
 
   render() {
     const activeRoom = this.props.activeRoom;
-    const messageList = this.state.messages
-    .filter(message => message.roomId === activeRoom)
-    .map(message => {
+    const messageList = this.state.messages.filter(message => message.roomId === activeRoom).map(message => {
       return <div className="current-chat-message" key={message.key}>{this.formatTime(message.sentAt)}{message.username}: {message.content}
-      <button className="deleteMessage" onClick={() => this.deleteMessage(message.key)}>Delete</button>
+      <button className="deleteMessage" onClick={() => this.deleteMessage(message.key)}>x</button>
       </div>
     })
 
@@ -98,11 +97,11 @@ class MessageList extends Component {
   <div className="chatroom-messages">
     <span>{messageList}</span>
 
-    <form onSubmit={(event) => this.handleSubmit(event)} >
+    <form onSubmit={(e) => this.handleSubmit(e)} >
 
-      <input type="text" value={this.state.content} name="createNewMessage" placeholder="New Message" onChange={(event) => this.handleChange(event)} />
+      <input type="text" value={this.state.content} name="createNewMessage" placeholder="New Message" onChange={(e) => this.handleChange(e)} />
 
-      <button className="send-button" type="submit" onClick={(event) => this.createNewMessage(event)}>Send</button>
+      <button className="send-button" type="submit" onClick={(e) => this.createNewMessage(e)}>Send</button>
 
     </form>
   </div>

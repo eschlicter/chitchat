@@ -1,0 +1,58 @@
+.deleteMessage, .send-button {
+    padding: 10px;
+    background-color: white;
+    border: none;
+    color: gray;
+}
+
+.list-names {
+    text-align: left;
+    color: gray;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+}
+
+.active-chat-room{
+    max-height: inherit;
+}
+
+
+.chatroom-messages input[type=text] {
+    border: none;
+    width: 80%;
+    text-align: center;
+    color: gray;
+}
+
+
+.room-list button[type=submit]{
+    padding: 10px;
+    color: gray;
+    border: none;
+}
+
+.active-chat-room {
+    margin-top: 10px;
+    color: gray;
+}
+
+
+.current-chat-message [type=text]{
+    width: 80%;
+    padding: 10px;
+    background-color: aliceblue;
+    color: gray;
+    border: none;
+}
+
+.current-chat-message{
+    background-color: white;
+    
+    color: gray;
+    width: 20%;
+    text-align: left;
+    padding: 1px;
+    padding-right: 30px;
+    
+}

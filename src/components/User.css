@@ -1,0 +1,14 @@
+.welcome-bar{
+    font-size: 20px;
+    font-style: normal;
+    color: gray;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.login-button, .logout-button{
+    padding: 10px;
+    background-color: whitesmoke;
+    border: none;
+    color: dimgray;
+}
