@@ -49,7 +49,7 @@
     border: none;
     background-color: whitesmoke;
     font-size: 14px;
-    float: left;
+    float: center;
 }
 
 #message-input input[type=text]{
