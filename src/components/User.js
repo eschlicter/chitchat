@@ -1,45 +1,56 @@
 import React, { Component } from 'react';
 import './../App.css';
 
+
 class User extends Component {
-  constructor(props){
-    super(props)
+    constructor(props) {
+        super(props)
 
-    this.logIn = this.logIn.bind(this);
-    this.logOut = this.logOut.bind(this);
+        this.logIn = this.logIn.bind(this);
+        this.logOut = this.logOut.bind(this);
 
-  }
+    }
 
-  logIn() {
-    const provider = new this.props.firebase.auth.GoogleAuthProvider();
-    this.props.firebase.auth().signInWithPopup( provider ).then((result) => {
-      const user = result.user;
-      this.props.setUser(user);
-    });
-  }
+    logIn() {
+            console.log("login called");
+            const provider = new this.props.firebase.auth.GoogleAuthProvider(); 
+            this.props.firebase.auth().signInWithPopup(provider).then((result) => {
+               console.log("logged in");
+               const user = result.user;
+               this.props.setUser(user);
+        })
+    }
 
-  logOut() {
-    this.props.firebase.auth().signOut().then(() => {
-      this.props.setUser(null);
-    });
-  }
-  componentDidMount () {
-    this.props.firebase.auth().onAuthStateChanged( user => {
-      this.props.setUser(user);
-    });
-  }
+    logOut() {
+        this.props.firebase.auth().signOut().then((result) => {
+            console.log("logged out");
+            this.props.setUser(null);
+        })
+    }
 
-  render() {
-    return(
-      <section className="welcome-bar">
-      <h3> Welcome, {this.props.currentUser}! </h3>
-      {this.props.currentUser === 'Guest' ?
-        <button className="login-button" onClick={this.logIn}>Log In</button> :
-        <button className="logout-button" onClick={this.logOut}>Log Out</button>
-      }
-      </section>
-    );
-  }
+    componentDidMount() {
+        this.props.firebase.auth().onAuthStateChanged(user => {
+            this.props.setUser(user);
+        });
+    }
+
+    render() {
+        return (
+            <section>
+                <div className="greeting">
+                    <p>Welcome, {this.props.activeUser}!</p>
+
+                    {this.props.activeUser === 'Guest' ?
+                        <button className="log-in" onClick={() => this.logIn()}>Log in</button>
+                        :
+                        <button className="log-out" onClick={() => this.logOut()}>Log out</button>
+                    }
+
+                </div>
+            </section>
+
+        );
+    }
 }
 
 export default User;

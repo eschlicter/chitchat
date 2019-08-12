@@ -1,58 +1,84 @@
-.deleteMessage, .send-button {
-    padding: 10px;
-    background-color: white;
-    border: none;
-    color: gray;
+.active-chatroom > h2 {
+    min-height: 100%;
+    text-align: center;
+    font-weight: 600;
+    color: dimgrey;    
 }
 
-.list-names {
-    text-align: left;
-    color: gray;
-    padding-left: 20px;
-    padding-bottom: 20px;
-    padding-right: 20px;
-}
-
-.active-chat-room{
+.active-chatroom{
     max-height: inherit;
 }
 
-
-.chatroom-messages input[type=text] {
-    border: none;
-    width: 80%;
-    text-align: center;
-    color: gray;
-}
-
-
-.room-list button[type=submit]{
-    padding: 10px;
-    color: gray;
-    border: none;
-}
-
-.active-chat-room {
-    margin-top: 10px;
-    color: gray;
-}
-
-
-.current-chat-message [type=text]{
-    width: 80%;
-    padding: 10px;
-    background-color: aliceblue;
-    color: gray;
-    border: none;
-}
-
-.current-chat-message{
-    background-color: white;
+.current-message {
     
-    color: gray;
-    width: 20%;
+    max-height: 100%;
+    width: 100%;
+    color: dimgrey;
+    padding: 10px;
+}
+
+#deleteMessage{
+    border: none;
+    color: dimgray;
+    float: right;
+    padding-left: 70%;
+    padding-top: 10px;
+}
+
+.chatroom-messages > form{
+    width: 100%;
+    max-height: 100%;
+    position: fixed;
+    bottom: 0;
+    
+}
+
+.chatroom-messages input[type=text]{
+    height: 50px;
+    width: 60%;
+    font-size: 14px;
+    background-color: whitesmoke;
+    border: none;
+    float: center;
+}
+
+
+.chatroom-messages button[type=submit]{
+    height: 52px;
+    width: 10%;
+    border: none;
+    background-color: whitesmoke;
+    font-size: 14px;
+    float: left;
+}
+
+#message-input input[type=text]{
+    padding-left: 10px;
+}
+
+.chat-bubble{
+    background-color: white;
+    border: 2px solid whitesmoke;
+    border-radius: 5px;
+    width: 30%;
     text-align: left;
     padding: 1px;
-    padding-right: 30px;
-    
+    padding-right: 10px;
+    position: relative;
+    margin: 20px;
+    box-shadow: 4px 4px 40px 4px darkgray;
+}
+
+.username{
+    color: #1da1f2;
+    font-size: 14px;
+}
+
+.wasDate{
+    float: right;
+    padding: 5px;
+    text-align: right;
+    color: dimgrey;
+    font-weight: 200;
+    font-size: 10px;
 }

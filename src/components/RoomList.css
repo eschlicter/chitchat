@@ -1,22 +1,47 @@
-.deleteRoom{
-    padding: 10px;
-    background-color: aliceblue;
+#deleteRoom {
+    text-align: center;
+    color: red;
+    background-color: inherit;
+    font-family: inherit;
+    font-size: 14px;
     border: none;
-    color: gray;
 }
 
-.side-bar-list-names {
+.list-names {
     text-align: left;
-    color: gray;
+    color: dimgrey;
     padding-left: 20px;
     padding-bottom: 20px;
     padding-right: 20px;
 }
 
+.room-list input[type=text] {
+    border: none;
+    width: 80%;
+    text-align: center;
+}
 
-.room-list {
-    color:white;
+
+.room-list button[type=submit]{
+    padding: 10px;
+    color: dimgrey;
+    border: none;
+}
+
+.room-list button{
+    margin-top: 10px;
+}
+
+.room-list > p {
+    color:dimgrey;
     padding-top: 40px;
     text-align: left;
     padding-left: 20px;
+}
+
+.create-room-text > form > input[type=text]{
+    width: 80%;
+    padding: 10px;
+    background-color: whitesmoke;
+    border: none;
 }

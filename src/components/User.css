@@ -1,12 +1,12 @@
-.welcome-bar{
-    font-size: 20px;
+.greeting{
+    font-size: 12px;
     font-style: normal;
-    color: gray;
+    color: dimgrey;
     padding-left: 10px;
     padding-right: 10px;
 }
 
-.login-button, .logout-button{
+.log-in, .log-out{
     padding: 10px;
     background-color: whitesmoke;
     border: none;
