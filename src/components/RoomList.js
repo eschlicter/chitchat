@@ -53,7 +53,8 @@ class RoomList extends Component {
             .filter(room => room.key !== roomKey);
             this.setState({ rooms: remainRooms});
         }
-        
+
+
         render() {
             return (
                 <section className= "room-list">
@@ -62,7 +63,13 @@ class RoomList extends Component {
                             {this.state.rooms.map( (room) => {
                             return (
                                 <div key={room.key} onClick={(e) => this.selectRoom(room, e)}>{room.name}
-                                <button id="deleteRoom" onClick={() => this.deleteRoom(room.key)}>[x]</button>
+                                
+                                <button type="button" class="close" aria-label="Close" id="deleteRoom" onClick={() => this.deleteRoom(room.key)}>
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                                
+                                
+                                
                                 </div> 
                             )
                             })}

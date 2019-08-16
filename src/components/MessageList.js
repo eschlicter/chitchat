@@ -105,9 +105,11 @@ class MessageList extends Component {
         const activeRoom = this.props.activeRoom;
         const messageList = this.state.messages.filter(message => message.roomId === activeRoom).map(message => {
             return <div className="message-container">
-                <div className="chat-bubble"> 
-                    <button id="deleteMessage" onClick={() => this.deleteMessage(message.key)}>
-                        [x]</button>
+                <div className="chat-bubble">
+
+                        <button type="button" class="close" aria-label="Close" button id="deleteMessage" onClick={() => this.deleteMessage(message.key)}>
+                             <span aria-hidden="true">&times;</span>
+                        </button>
                             <div className="current-message" key={message.key}>{message.content}
             
                     <p className="username">{message.username}</p>
